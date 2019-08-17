@@ -422,9 +422,9 @@ void editorFindCallback(char *query, int key) {
     direction = 1;
     return;
   } else if (key == ARROW_LEFT || key == ARROW_UP) {
-    direction = 1;
-  } else if (key == ARROW_RIGHT || key == ARROW_DOWN) {
     direction = -1;
+  } else if (key == ARROW_RIGHT || key == ARROW_DOWN) {
+    direction = 1;
   } else {
     last_match = -1;
     direction = 1;
@@ -449,6 +449,7 @@ void editorFindCallback(char *query, int key) {
       E.cy = current;
       E.cx = editorRowRxToCx(row, match - row->render);
       E.rowoff = E.numrows;
+      break;
     }
   }
 }
@@ -625,7 +626,7 @@ char *editorPrompt(char *prompt, void(*callback)(char *, int)) {
 
     int c = editorReadKey();
     if (c == DEL_KEY || c == BACKSPACE || c == CTRL_KEY('h')) {
-      if (buflen != 0) buf[buflen--] = '\0';
+      if (buflen != 0) buf[--buflen] = '\0';
     } else if (c == '\x1b') {
       editorSetStatusMessage("");
       if (callback) callback(buf, c);
