@@ -1,0 +1,10 @@
+* What?
+My journey to write an editor as a part of =holiday2019='s projecs
+* How?
+Original code [[https://github.com/antirez/kilo][antirez/kilo: A text editor in less than 1000 LOC with
+syntax highlight and search.]]
+
+Walkthrough [[https://viewsourcecode.org/snaptoken/kilo/index.html][Build Your Own Text Editor]]
+* License
+2-clauses BSD as original
+
